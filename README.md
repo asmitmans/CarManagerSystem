@@ -1,6 +1,7 @@
 # Prueba - Desarrollo de aplicaciones web dinámicas Java
 
-### Tablas usadas
+####Tablas usadas  
+
 ```sql
 -- Borrar tablas si existen
 DROP TABLE IF EXISTS roles_usuarios;
@@ -75,18 +76,18 @@ INSERT INTO direcciones (nombre, numeracion, usuario_id) VALUES
 ('Las Rosas', '119', 3),		-- Dirección para user_id 3
 ('Los Aromos', '127', 3),		-- Otra dirección para user_id 3
 ('Gabriela Mistral', '128', 3);	-- Otra dirección para user_id 3
+```
+  
+  
+**Configuracion BD**  
+[https://github.com/asmitmans/Prueba_M5/blob/main/src/main/java/cl/fullstackjava/model/conexion/Conexion.java](https://github.com/asmitmans/Prueba_M5/blob/main/src/main/java/cl/fullstackjava/model/conexion/Conexion.java)  
 
-### Configuracion BD
+
+**Imagen deploy**  
+[https://github.com/asmitmans/Prueba_M5/blob/main/src/main/webapp/img/Tomcat.png](https://github.com/asmitmans/Prueba_M5/blob/main/src/main/webapp/img/Tomcat.png)
 
 
-### Imagen deploy
-
-
-### Datos pruebas:
+**Datos pruebas:**  
  * Usuario con rol administrativo: email: user1@mail.com pass: pass123
  * Usuario sin rol administrativo: email: user3@mail.com pass: pass789
-
- 
-
-
 
