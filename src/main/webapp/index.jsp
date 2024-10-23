@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>StartUp</title>
+<title>CarManagerSystem</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -23,7 +23,7 @@
 <body class="bg-dark text-light">
 	<nav class="navbar navbar-dark bg-dark">
 		<form class="container" method="get">
-			<a class="navbar-brand text-center" href="#">StartUp <i
+			<a class="navbar-brand text-center" href="#">CarManagerSystem <i
 				class="fa-solid fa-rocket"></i></a>
 			<div class="d-flex justify-content-end">
 				<a href="${pageContext.request.contextPath}/user?view=login" class="btn btn-success me-2" role="button">Login</a>
@@ -41,7 +41,7 @@
 	
 		<div class="text-center vertical-center">
 			<h1 class="display-1">Bienvenido</h1>
-			<h2 class="display-5">StartUp: innovacion y tecnologia</h2>
+			<h2 class="display-5">CarManagerSystem: innovacion y tecnologia</h2>
 		</div>
 	</div>
 
