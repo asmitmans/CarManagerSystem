@@ -24,7 +24,7 @@
 	<nav class="navbar navbar-dark bg-dark">
 		<form class="container" method="get">
 			<a class="navbar-brand text-center" href="#">CarManagerSystem <i
-				class="fa-solid fa-rocket"></i></a>
+				class="fa-solid fa-car"></i></a>
 			<div class="d-flex justify-content-end">
 				<a href="${pageContext.request.contextPath}/user?view=login" class="btn btn-success me-2" role="button">Login</a>
             	<a href="${pageContext.request.contextPath}/user?view=create" class="btn btn-secondary" role="button">Register</a>

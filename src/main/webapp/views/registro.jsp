@@ -24,7 +24,7 @@
 	<nav class="navbar navbar-dark bg-dark">
 		<form class="container" method="get">
 			<a class="navbar-brand text-center" href="#">CarManagerSystem <i
-				class="fa-solid fa-rocket"></i></a>
+				class="fa-solid fa-car"></i></a>
 		</form>
 	</nav>
 	

@@ -10,8 +10,8 @@ public class Conexion {
 	private Conexion() {
 		try {
 			Class.forName("org.postgresql.Driver");
-			con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/desafioproveedores",
-					"postgres", "passpsql");
+			con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/<nombre_bd>",
+					"<usuario_bd>", "password_usuario_bd");
 			} catch(ClassNotFoundException | SQLException ex) {
 				System.out.println("Error al conectar con la BD: " + ex.getMessage());
 				}

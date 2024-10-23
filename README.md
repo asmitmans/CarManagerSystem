@@ -1,94 +1,62 @@
-# Prueba - Desarrollo de aplicaciones web dinámicas Java
+# CarManagerSystem - Sistema de Gestión de Vehículos
+
+## Descripción del Proyecto
+CarManagerSystem es una aplicación web desarrollada en Java que permite la 
+gestión de usuarios y vehículos. Los administradores pueden realizar 
+operaciones CRUD en los datos, asignar roles a los usuarios y gestionar sus 
+permisos. El sistema utiliza Servlets, JSP, y JDBC para la interacción con 
+una base de datos MySQL.
 
 
-#### Tablas usadas  
+## Características
+- **Gestión de Usuarios**: Crear, leer, actualizar y eliminar información de 
+  usuarios.
+- **Gestión de Vehículos**: CRUD completo para la administración de vehículos.
+- **Gestión de Roles**: Asignación de roles a los usuarios para controlar 
+  accesos.
+- **Autenticación**: Sistema de login y logout para gestionar el acceso 
+  según los roles definidos.
+- **Vistas JSP**: Despliegue de la interfaz mediante JSPs con acceso dinámico 
+  a los datos.
 
-```sql
--- Borrar tablas si existen
-DROP TABLE IF EXISTS roles_usuarios;
-DROP TABLE IF EXISTS direcciones;
-DROP TABLE IF EXISTS roles;
-DROP TABLE IF EXISTS usuarios;
-
--- CREAR TABLAS
--- Crear tabla usuarios
-CREATE TABLE usuarios (
-    id SERIAL PRIMARY KEY,
-    correo VARCHAR(255) NOT NULL,
-    nick VARCHAR(50) NOT NULL,
-    nombre VARCHAR(100) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    peso NUMERIC(10,2) NOT NULL,
-    created_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP
-);
-
--- Crear tabla roles
-CREATE TABLE roles (
-	id SERIAL PRIMARY KEY,
-	nombre VARCHAR(20) NOT NULL
-);
-
--- Crear tabla roles_usuarios
-CREATE TABLE roles_usuarios (
-	usuario_id INTEGER NOT NULL,
-	rol_id INTEGER NOT NULL,
-	PRIMARY KEY (usuario_id, rol_id),
-	FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
-	FOREIGN KEY (rol_id) REFERENCES roles(id)
-);
-
--- Crear la tabla direcciones
-CREATE TABLE direcciones (
-	id SERIAL PRIMARY KEY,
-	nombre VARCHAR(50) NOT NULL,
-	numeracion VARCHAR(25) NOT NULL,
-	usuario_id INTEGER NOT NULL,
-	FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
-);
-
-
--- INSERTAR DATOS
--- Insertar datos de prueba
-INSERT INTO usuarios (correo, nick, nombre, password, peso, created_at, updated_at) VALUES
-('user1@mail.com', 'Peter', 'Pedro Perez', 'pass123', 70.50, '2024-07-10 17:47:23', '2024-07-10 17:47:23'),
-('user2@mail.com', 'Jhon', 'Juan Gonzales', 'pass456', 65.00, '2024-07-10 17:47:23', '2024-07-10 17:47:23'),
-('user3@mail.com', 'Armando', 'Diego Muñoz', 'pass789', 80.00, '2024-07-10 17:47:23', '2024-07-10 17:47:23');
-
--- Insertar datos en tabla roles
-INSERT INTO roles (nombre) VALUES
-('trabajador'),			-- id = 1
-('supervisor'),			-- id = 2
-('administrativo');		-- id = 3
-
--- Isertar datos en la tabla roles_usuarios
-INSERT INTO roles_usuarios (usuario_id, rol_id) VALUES
-(1, 1), -- user_id 1 tiene rol trabajador
-(1, 2), -- user_id 1 tiene rol supervisor
-(1, 3), -- user_id 1 tiene rol administrativo
-(2, 2), -- user_id 2 tiene rol supervisor
-(2, 3), -- user_id 2 tiene rol administrativo
-(3, 1); -- user_id 3 tiene rol trabajador
-
--- Insertar datos en la tabla direcciones
-INSERT INTO direcciones (nombre, numeracion, usuario_id) VALUES
-('Lautaro', '114', 1),			-- Dirección para user_id 1
-('Caupolicán', '115', 2),		-- Dirección para user_id 2
-('Las Rosas', '119', 3),		-- Dirección para user_id 3
-('Los Aromos', '127', 3),		-- Otra dirección para user_id 3
-('Gabriela Mistral', '128', 3);	-- Otra dirección para user_id 3
-```
   
-  
-**Configuracion BD**  
-[https://github.com/asmitmans/Prueba_M5/blob/main/src/main/java/cl/fullstackjava/model/conexion/Conexion.java](https://github.com/asmitmans/Prueba_M5/blob/main/src/main/java/cl/fullstackjava/model/conexion/Conexion.java)  
+## Tecnologías Utilizadas
+- **Java**: Lenguaje de programación principal.
+- **JSP y Servlets**: Para el manejo de la interfaz y lógica del lado del 
+  servidor.
+- **Tomcat**: Servidor web para el despliegue.
+- **MySQL**: Base de datos para el almacenamiento de usuarios y vehículos.
+- **JDBC**: Para la conexión con la base de datos.
+- **Git y GitHub**: Control de versiones y colaboración.
 
 
-**Imagen deploy**  
-[https://github.com/asmitmans/Prueba_M5/blob/main/src/main/webapp/img/Tomcat.png](https://github.com/asmitmans/Prueba_M5/blob/main/src/main/webapp/img/Tomcat.png)
+## Configuración de la Base de Datos
+Para que la aplicación funcione correctamente, es necesario configurar la base 
+de datos en el archivo `Conexion.java`, dentro del paquete 
+`cl.fullstackjava.model.conexion`. Cambia los siguientes valores:
+
+- **Nombre de la base de datos**: `"nombre_bd"`
+- **Usuario de la base de datos**: `"usuario_bd"`
+- **Contraseña**: `"password_usuario_bd"`
+
+Ejecuta el archivo `src/sql/tables.sql` para crear las tablas y poblar la base 
+de datos con datos de prueba.
 
 
-**Datos pruebas:**  
- * Usuario con rol administrativo: email: user1@mail.com pass: pass123
- * Usuario sin rol administrativo: email: user3@mail.com pass: pass789
+## Instalación y Uso
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/asmitmans/CarManagerSystem.git
+   ```
+2. Configura la base de datos como se menciona en la sección anterior.
+3. Importa el proyecto en Eclipse o IntelliJ como un proyecto web dinámico.
+4. Ejecuta en Tomcat y accede a:
+   ```bash
+   http://localhost:8080/CarManagerSystem/
+   ```
 
+   
+## Autor
+Este proyecto fue desarrollado por [Agustin Smitmans](https://github.com/asmitmans) 
+como parte de un desafío técnico en Java. Si tienes alguna pregunta o deseas 
+contactarme, puedes hacerlo a través de mi perfil en GitHub.
