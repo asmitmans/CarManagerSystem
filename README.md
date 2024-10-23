@@ -1,23 +1,23 @@
 # CarManagerSystem - Sistema de Gestión de Vehículos
 
+
 ## Descripción del Proyecto
-CarManagerSystem es una aplicación web desarrollada en Java que permite la 
-gestión de usuarios y vehículos. Los administradores pueden realizar 
-operaciones CRUD en los datos, asignar roles a los usuarios y gestionar sus 
-permisos. El sistema utiliza Servlets, JSP, y JDBC para la interacción con 
-una base de datos MySQL.
+CarManagerSystem es una aplicación web desarrollada en Java que permite el
+registro y login de usuarios. Los roles de usuario se gestionan directamente
+en la base de datos, y solo los usuarios con rol **administrativo** tienen
+acceso al listado de direcciones. El sistema utiliza Servlets, JSP y JDBC
+para la interacción con una base de datos PostgreSQL.
 
 
 ## Características
-- **Gestión de Usuarios**: Crear, leer, actualizar y eliminar información de 
-  usuarios.
-- **Gestión de Vehículos**: CRUD completo para la administración de vehículos.
-- **Gestión de Roles**: Asignación de roles a los usuarios para controlar 
-  accesos.
-- **Autenticación**: Sistema de login y logout para gestionar el acceso 
-  según los roles definidos.
-- **Vistas JSP**: Despliegue de la interfaz mediante JSPs con acceso dinámico 
-  a los datos.
+- **Login y Registro de Usuarios**: Los usuarios pueden registrarse y hacer 
+  login en el sistema.
+- **Gestión de Acceso mediante Roles**: Los roles de los usuarios (definidos 
+  en la base de datos) controlan el acceso a la funcionalidad de visualización 
+  del listado de direcciones. Solo los usuarios con rol administrativo pueden 
+  acceder a esta funcionalidad.
+- **Listado de Direcciones**: Solo accesible para usuarios con rol 
+  administrativo.
 
   
 ## Tecnologías Utilizadas
@@ -25,7 +25,7 @@ una base de datos MySQL.
 - **JSP y Servlets**: Para el manejo de la interfaz y lógica del lado del 
   servidor.
 - **Tomcat**: Servidor web para el despliegue.
-- **MySQL**: Base de datos para el almacenamiento de usuarios y vehículos.
+- **PostgreSQL**: Base de datos para el almacenamiento de usuarios y direcciones.
 - **JDBC**: Para la conexión con la base de datos.
 - **Git y GitHub**: Control de versiones y colaboración.
 
@@ -45,15 +45,15 @@ de datos con datos de prueba.
 
 ## Instalación y Uso
 1. Clona este repositorio:
-   ```bash
-   git clone https://github.com/asmitmans/CarManagerSystem.git
-   ```
+	```bash
+	   git clone https://github.com/asmitmans/CarManagerSystem.git
+	```
 2. Configura la base de datos como se menciona en la sección anterior.
 3. Importa el proyecto en Eclipse o IntelliJ como un proyecto web dinámico.
 4. Ejecuta en Tomcat y accede a:
-   ```bash
-   http://localhost:8080/CarManagerSystem/
-   ```
+	```bash
+	http://localhost:8080/CarManagerSystem/
+	```
 
    
 ## Autor
